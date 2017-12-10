@@ -1,11 +1,10 @@
 
 import React, { Component } from 'react'
-import { StyleSheet, View, SectionList, Image } from 'react-native'
+import { View, SectionList, Image } from 'react-native'
 import Expense from './expense'
+import Header from './header'
 import ListItemHeader from './list-item-header'
-
-// /src/respositories/expenses.js
-import expenseRepository from 'repositories/expenses'
+import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 
 export default class Expenses extends Component {
   constructor (props) {
@@ -19,11 +18,9 @@ export default class Expenses extends Component {
   }
   render() {
     return (
-      <View style={styles.background}>
-        <Image
-          style={styles.image}
-          source={{uri: 'https://s20.postimg.org/gtcxjhiul/image.jpg'}}/>
-        <View style={styles.list}>
+      <View style={{flex: 1}}>
+        <Header/>
+        <View style={{flex: 4}}>
           <SectionList
             sections={this.state.expenses}
             renderSectionHeader={({section}) => <ListItemHeader section={section} />}
@@ -34,16 +31,3 @@ export default class Expenses extends Component {
     )
   }
 }
-
-const styles = StyleSheet.create({
-  background: {
-    flex: 1
-  },
-  image: {
-    flex: 1,
-    resizeMode: 'cover',
-  },
-  list: {
-    flex: 4
-  },
-})
