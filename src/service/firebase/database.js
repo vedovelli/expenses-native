@@ -1,5 +1,9 @@
 
 import * as firebase from 'firebase'
+
+/**
+* see .env.example
+*/
 import {
   apiKey,
   authDomain,
@@ -9,16 +13,13 @@ import {
   messagingSenderId
 } from 'react-native-dotenv'
 
-const config = {
+const connection = firebase.initializeApp({
   apiKey,
   authDomain,
   databaseURL,
   projectId,
   storageBucket,
   messagingSenderId,
-}
+})
 
-const connection = firebase.initializeApp(config)
-const database = connection.database()
-
-export default database
+export default connection.database()
