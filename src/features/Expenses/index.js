@@ -1,8 +1,10 @@
 
 import React, { Component } from 'react'
-import { FlatList } from 'react-native'
-import expenseRepository from 'repositories/expenses'
+import { View, FlatList } from 'react-native'
 import Expense from './expense'
+
+// /src/respositories/expenses.js
+import expenseRepository from 'repositories/expenses'
 
 export default class Expenses extends Component {
   constructor (props) {
@@ -16,9 +18,11 @@ export default class Expenses extends Component {
   }
   render() {
     return (
-      <FlatList
-        data={this.state.expenses}
-        renderItem={({item}) => <Expense item={item}/>} />
+      <View>
+        <FlatList
+          data={this.state.expenses}
+          renderItem={({item}) => <Expense item={item}/>} />
+      </View>
     )
   }
 }
