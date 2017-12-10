@@ -28,6 +28,7 @@ const styles = StyleSheet.create({
   },
   sectionHeaderTextRight: {
     fontSize: 16,
+    fontWeight: 'bold',
     flex: 1,
     textAlign: 'right',
   },
