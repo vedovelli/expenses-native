@@ -5,19 +5,30 @@ import { StyleSheet, View, Text } from 'react-native'
 export default class ListItemHeader extends PureComponent {
   render () {
     return (
-      <Text style={styles.sectionHeader}>{this.props.section.title}</Text>
+      <View style={styles.sectionHeader}>
+        <Text style={styles.sectionHeaderTextLeft}>{this.props.section.title}</Text>
+        <Text style={styles.sectionHeaderTextRight}>R${this.props.section.total}</Text>
+      </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
   sectionHeader: {
-    paddingTop: 2,
-    paddingLeft: 10,
-    paddingRight: 10,
-    paddingBottom: 2,
-    fontSize: 14,
-    fontWeight: 'bold',
+    padding: 16,
     backgroundColor: 'rgba(247,247,247,1.0)',
+    flex: 1,
+    flexDirection: 'row',
+    borderBottomWidth: 1,
+    borderColor: '#ccc',
+  },
+  sectionHeaderTextLeft: {
+    fontSize: 16,
+    flex: 1,
+  },
+  sectionHeaderTextRight: {
+    fontSize: 16,
+    flex: 1,
+    textAlign: 'right',
   },
 })
