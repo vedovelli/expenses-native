@@ -1,7 +1,8 @@
 
 import React, { Component } from 'react'
-import { FlatList } from 'react-native'
+import { SectionList } from 'react-native'
 import Expense from './expense'
+import ListItemHeader from './list-item-header'
 
 // /src/respositories/expenses.js
 import expenseRepository from 'repositories/expenses'
@@ -14,13 +15,15 @@ export default class Expenses extends Component {
     }
   }
   componentDidMount () {
-    expenseRepository.list(expenses => this.setState({ expenses }))
+    expenseRepository.listWithSections(expenses => this.setState({ expenses }))
   }
   render() {
     return (
-      <FlatList
-        data={this.state.expenses}
-        renderItem={({item}) => <Expense item={item}/>} />
+      <SectionList
+        sections={this.state.expenses}
+        renderSectionHeader={({section}) => <ListItemHeader section={section} />}
+        renderItem={({item}) => <Expense item={item}/>}
+        keyExtractor={(item, index) => index} />
     )
   }
 }
