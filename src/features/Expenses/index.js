@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react'
 import { FlatList } from 'react-native'
-import expenseRepository from '../../repositories/expenses'
+import expenseRepository from 'repositories/expenses'
 import Expense from './expense'
 
 export default class Expenses extends Component {

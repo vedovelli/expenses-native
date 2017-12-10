@@ -1,7 +1,7 @@
 
 import map from 'lodash/map'
 import reverse from 'lodash/reverse'
-import database from '../service/firebase/database'
+import database from 'firebase/database'
 
 const expenseRepository = {
   list (callback) {
