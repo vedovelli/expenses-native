@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { View, FlatList } from 'react-native'
+import { FlatList } from 'react-native'
 import Expense from './expense'
 
 // /src/respositories/expenses.js
@@ -18,11 +18,9 @@ export default class Expenses extends Component {
   }
   render() {
     return (
-      <View>
-        <FlatList
-          data={this.state.expenses}
-          renderItem={({item}) => <Expense item={item}/>} />
-      </View>
+      <FlatList
+        data={this.state.expenses}
+        renderItem={({item}) => <Expense item={item}/>} />
     )
   }
 }
