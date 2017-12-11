@@ -40,6 +40,12 @@ const listWithSections = callback => {
   })
 }
 
+const save = (expense) => {
+  return Promise.resolve({
+    key: database.ref('expenses').push(expense).key
+  })
+}
+
 const _sortDates = (a, b) => {
   a = a.split('/').reverse().join('')
   b = b.split('/').reverse().join('')
@@ -54,5 +60,6 @@ const _getItemsForDate = (expenses, date) => {
 
 export default {
   list,
-  listWithSections
+  listWithSections,
+  save
 }
