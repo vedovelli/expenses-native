@@ -43,17 +43,17 @@ export default class Expense extends Component {
             ref={e => amountField = e}
             placeholder="Valor (Ex. 10,00)"
             keyboardType="numeric"
-            style={{height: 40, paddingLeft: 10, marginBottom: 5, borderColor: 'gray', borderWidth: 1}}
+            style={styles.expenseInput}
             onChangeText={(amount) => this.setState({amount: amount.toString()})}
             value={this.state.amount} />
           <TextInput
             placeholder="Descrição (Ex. 'Gasolina')"
-            style={{height: 40, paddingLeft: 10, marginBottom: 5, borderColor: 'gray', borderWidth: 1}}
+            style={styles.expenseInput}
             onChangeText={(description) => this.setState({description})}
             value={this.state.description} />
           <TextInput
             placeholder="Data (dd/mm/aaaa)"
-            style={{height: 40, paddingLeft: 10, marginBottom: 5, borderColor: 'gray', borderWidth: 1}}
+            style={styles.expenseInput}
             onChangeText={(date) => this.setState({date})}
             value={this.state.date} />
           <Button title="Salvar" onPress={() => this.doSave()} />
@@ -62,3 +62,13 @@ export default class Expense extends Component {
     )
   }
 }
+
+const styles = StyleSheet.create({
+  expenseInput: {
+    height: 40,
+    paddingLeft: 10,
+    marginBottom: 5,
+    borderColor: '#ccc',
+    borderWidth: 1
+  }
+})
