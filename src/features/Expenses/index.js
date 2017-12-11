@@ -16,7 +16,7 @@ export default class Expenses extends Component {
   navigate () {
     this.setState({
       visibleList: !this.state.visibleList,
-      buttonTitle: this.state.visibleList ? 'Lista de Despesas' : 'Criar'
+      buttonTitle: this.state.visibleList ? 'Lista de Despesas' : 'Incluir Despesa'
     })
   }
   render() {
