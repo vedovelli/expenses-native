@@ -13,7 +13,7 @@ export default class Expenses extends Component {
       buttonTitle: 'Lista de Despesas'
     }
   }
-  onPress () {
+  navigate () {
     this.setState({
       visibleList: !this.state.visibleList,
       buttonTitle: this.state.visibleList ? 'Lista de Despesas' : 'Criar'
@@ -23,7 +23,7 @@ export default class Expenses extends Component {
     return (
       <View style={{flex: 1}}>
         <Header/>
-        <Button title={this.state.buttonTitle} onPress={() => this.onPress()}/>
+        <Button title={this.state.buttonTitle} onPress={() => this.navigate()}/>
         {this.state.visibleList ? <ExpenseList/> : null}
         {!this.state.visibleList ? <Form/> : null}
       </View>
