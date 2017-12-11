@@ -2,6 +2,8 @@
   "expo": {
     "name": "Vedovelli Expenses",
     "slug": "vedovelli-expenses",
+    "orientation": "portrait",
+    "icon": "https://s20.postimg.org/hlh0sejil/icon.png",
     "sdkVersion": "23.0.0"
   }
 }
