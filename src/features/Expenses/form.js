@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, Button, TextInput } from 'react-native'
+import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 import { today } from 'util/date'
 
@@ -24,7 +24,7 @@ export default class Expense extends Component {
       }).then(() => {
         this.reset()
         amountField.focus()
-        console.log('I am ready to redirect to the list!')
+        // TODO: redirect to the list
       })
     }
   }
@@ -35,11 +35,9 @@ export default class Expense extends Component {
       date: today()
     })
   }
-  onPress () {}
   render () {
     return (
       <View style={{flex: 4}}>
-        <Button title="Back to List" onPress={() => this.onPress()} />
         <View style={{padding: 10}}>
           <TextInput
             ref={e => amountField = e}
