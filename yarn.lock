@@ -4659,6 +4659,12 @@ react-native-dotenv@^0.1.0:
   dependencies:
     babel-plugin-dotenv "0.1.0"
 
+react-native-easy-toast@^1.0.9:
+  version "1.0.9"
+  resolved "https://registry.yarnpkg.com/react-native-easy-toast/-/react-native-easy-toast-1.0.9.tgz#85b28ccd8f6dfb67495320a47c275d3fe163e660"
+  dependencies:
+    prop-types "^15.5.10"
+
 react-native-gesture-handler@1.0.0-alpha.30:
   version "1.0.0-alpha.30"
   resolved "https://registry.yarnpkg.com/react-native-gesture-handler/-/react-native-gesture-handler-1.0.0-alpha.30.tgz#7f79c2da5a59cc8ce20cf04c11360409a53bef59"

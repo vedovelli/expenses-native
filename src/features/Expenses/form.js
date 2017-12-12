@@ -1,5 +1,6 @@
 
 import React, { Component } from 'react'
+import Toast from 'react-native-easy-toast'
 import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 import { today } from 'util/date'
 import {
@@ -39,7 +40,8 @@ export default class Expense extends Component {
         archived: false
       }).then(() => {
         this.reset()
-        this.props.back()
+        amountField.focus()
+        this.refs.toast.show('Despesa salva com sucesso', 750)
       })
     }
   }
@@ -54,6 +56,7 @@ export default class Expense extends Component {
     return (
       <TouchableWithoutFeedback onPress={this.dismiss}>
         <View style={styles.formContainer}>
+          <Toast ref="toast" position="top" />
           <TextInput
             ref={e => amountField = e}
             placeholder="Valor (Ex. 10,00)"
