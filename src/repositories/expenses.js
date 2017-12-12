@@ -40,10 +40,15 @@ const listWithSections = callback => {
   })
 }
 
-const save = (expense) => {
+const save = expense => {
   return Promise.resolve({
     key: database.ref('expenses').push(expense).key
   })
+}
+
+const toggleArchived = expense => {
+  expense.archived = !expense.archived
+  database.ref(`expenses/${expense.id}`).update(expense)
 }
 
 const _sortDates = (a, b) => {
@@ -61,5 +66,6 @@ const _getItemsForDate = (expenses, date) => {
 export default {
   list,
   listWithSections,
-  save
+  save,
+  toggleArchived
 }

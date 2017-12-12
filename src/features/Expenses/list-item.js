@@ -1,10 +1,11 @@
 
 import React, { PureComponent } from 'react'
 import { StyleSheet, TouchableOpacity, View, Text, Alert } from 'react-native'
+import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 
 export default class Expense extends PureComponent {
   onPress (expense) {
-    Alert.alert(expense.id)
+    expenseRepository.toggleArchived(expense)
   }
   formatCurrency (amount) {
     const currencyFormated = parseFloat(amount, 10).toFixed(2)
