@@ -1,12 +1,22 @@
 
 import React, { Component } from 'react'
-import { Platform, StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 import { today } from 'util/date'
+import {
+  Platform,
+  StyleSheet,
+  TouchableWithoutFeedback,
+  Keyboard,
+  View,
+  Text,
+  TextInput,
+  Button } from 'react-native'
 
 export default class Expense extends Component {
   constructor (props) {
     super(props)
+    this.doSave = this.doSave.bind(this)
+    this.dismiss = this.dismiss.bind(this)
     this.state = {
       amount: '',
       description: '',
@@ -15,6 +25,9 @@ export default class Expense extends Component {
   }
   componentDidMount () {
     amountField.focus()
+  }
+  dismiss () {
+    Keyboard.dismiss()
   }
   doSave () {
     const { amount, date, description } = this.state
@@ -39,8 +52,8 @@ export default class Expense extends Component {
   }
   render () {
     return (
-      <View style={{flex: 4}}>
-        <View style={{padding: 10}}>
+      <TouchableWithoutFeedback onPress={this.dismiss}>
+        <View style={styles.formContainer}>
           <TextInput
             ref={e => amountField = e}
             placeholder="Valor (Ex. 10,00)"
@@ -58,14 +71,18 @@ export default class Expense extends Component {
             style={styles.expenseInput}
             onChangeText={(date) => this.setState({date})}
             value={this.state.date} />
-          <Button title="Salvar" onPress={() => this.doSave()} />
+          <Button title="Salvar" onPress={this.doSave} />
         </View>
-      </View>
+      </TouchableWithoutFeedback>
     )
   }
 }
 
 const styles = StyleSheet.create({
+  formContainer: {
+    flex: 4,
+    padding: 10
+  },
   expenseInput: {
     height: 40,
     paddingLeft: 10,
