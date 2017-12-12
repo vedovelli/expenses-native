@@ -47,4 +47,4 @@ Se tudo correu bem, você verá o formulário para adicionar nova despesa.
 
 ## Licença
 
-Não há licensa. Use à vontade. Pode até chamar de seu.
+Não há licença. Use à vontade. Pode até chamar de seu.
