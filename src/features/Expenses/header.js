@@ -11,7 +11,7 @@ export default class Header extends Component {
         </View>
         <Image
           style={styles.image}
-          source={{uri: 'https://s20.postimg.org/gtcxjhiul/image.jpg'}}/>
+          source={require('../../../assets/images/image.jpg')}/>
       </View>
     )
   }
