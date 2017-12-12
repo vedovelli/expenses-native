@@ -1,6 +1,6 @@
 
 import React, { Component } from 'react'
-import { StyleSheet, View, Text, TextInput, Button } from 'react-native'
+import { Platform, StyleSheet, View, Text, TextInput, Button } from 'react-native'
 import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 import { today } from 'util/date'
 
@@ -12,6 +12,9 @@ export default class Expense extends Component {
       description: '',
       date: today()
     }
+  }
+  componentDidMount () {
+    amountField.focus()
   }
   doSave () {
     const { amount, date, description } = this.state
@@ -68,7 +71,7 @@ const styles = StyleSheet.create({
     height: 40,
     paddingLeft: 10,
     marginBottom: 5,
-    borderColor: '#ccc',
-    borderWidth: 1
+    borderColor: Platform.OS === 'ios' ? '#ccc' : null,
+    borderWidth: Platform.OS === 'ios' ? 1 : null,
   }
 })
