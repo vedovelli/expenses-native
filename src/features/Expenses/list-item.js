@@ -1,13 +1,9 @@
-
 import React, { PureComponent } from 'react'
 import { StyleSheet, TouchableOpacity, View, Text, Alert } from 'react-native'
 import Swipeout from 'react-native-swipeout'
 import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 
 export default class Expense extends PureComponent {
-  onPress (expense) {
-    expenseRepository.toggleArchived(expense)
-  }
   formatCurrency (amount) {
     const currencyFormated = parseFloat(amount, 10).toFixed(2)
     return `R$${currencyFormated}`
@@ -22,15 +18,19 @@ export default class Expense extends PureComponent {
       ]
     )
   }
-  render () {
-    const { item } = this.props
-    const { description, amount } = item
-    const swipeoutButtons = [{
+  getSwipeButtons (expense) {
+    return [{
+      text: expense.archived ? 'Ativar' : 'Arquivar',
+      backgroundColor: expense.archived ? 'green' : '#209AD1',
+      onPress: () => expenseRepository.toggleArchived(expense)
+    }, {
       text: 'Delete',
       backgroundColor: '#c00000',
-      onPress: () => this.confirmDelete(item)
+      onPress: () => this.confirmDelete(expense)
     }]
-    const styles = StyleSheet.create({
+  }
+  getStyles ({ archived }) {
+    return StyleSheet.create({
       itemContainer: {
         padding: 5,
         borderBottomWidth: 1,
@@ -43,9 +43,9 @@ export default class Expense extends PureComponent {
         padding: 10,
         fontSize: 16,
         flex: 1,
-        color: item.archived ? '#ccc' : null,
-        textDecorationLine: item.archived ? 'line-through' : null,
-        textDecorationStyle: item.archived ? 'solid' : null,
+        color: archived ? '#ccc' : null,
+        textDecorationLine: archived ? 'line-through' : null,
+        textDecorationStyle: archived ? 'solid' : null,
       },
       itemRight: {
         height: 44,
@@ -53,19 +53,22 @@ export default class Expense extends PureComponent {
         fontSize: 16,
         textAlign: 'right',
         flex: 1,
-        color: item.archived ? '#ccc' : null,
-        textDecorationLine: item.archived ? 'line-through' : null,
-        textDecorationStyle: item.archived ? 'solid' : null,
+        color: archived ? '#ccc' : null,
+        textDecorationLine: archived ? 'line-through' : null,
+        textDecorationStyle: archived ? 'solid' : null,
       },
     })
+  }
+  render () {
+    const { item } = this.props
+    const { description, amount } = item
+    const styles = this.getStyles(item)
     return (
-        <TouchableOpacity onPress={() => this.onPress(item)}>
-          <Swipeout right={swipeoutButtons} backgroundColor="white" autoClose={true}>
-            <View style={styles.itemContainer}>
-              <Text style={styles.itemLeft}>{description}</Text>
-              <Text style={styles.itemRight}>{this.formatCurrency(amount)}</Text>
-            </View>
-          </Swipeout>
-        </TouchableOpacity>)
+      <Swipeout right={this.getSwipeButtons(item)} backgroundColor="white" autoClose={true}>
+        <View style={styles.itemContainer}>
+          <Text style={styles.itemLeft}>{description}</Text>
+          <Text style={styles.itemRight}>{this.formatCurrency(amount)}</Text>
+        </View>
+      </Swipeout>)
   }
 }
