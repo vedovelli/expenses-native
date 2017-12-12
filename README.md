@@ -8,7 +8,7 @@ O projeto é de meu uso pessoal e é uma das apps que mais utilizo em meu smartp
 
 ## Iniciando
 
-Os dados são armazenados num realtime database no Firebase.
+Os dados são armazenados num *realtime database* no [Firebase](https://firebase.com/).
 
 Crie sua conta e um banco de dados. As informações de acesso devem ser adicionadas no *.env*, que ainda não existe. Basta duplicar o *.env.example*, renomeando para *.env* e adicionar os dados de acesso ao Firebase.
 
@@ -34,15 +34,12 @@ Para visualizar basta, em seu smartphone, instalar a app Expo. Com ela basta esc
 
 Se tudo correu bem, você verá o formulário para adicionar nova despesa.
 
-## Testes
-
-Ainda não há cobertura de testes.
-
 ## Desenvolvido com
 
 * [React Native](http://facebook.github.io/react-native) - O Framework utilizado
 * [Node.js](https://nodejs.org/) - Para as ferramentas de servidor e compilação
 * [Yarn](https://yarnpkg.com/en/) - Gerenciador de dependências de projeto
+* [Firebase](https://firebase.com/) - Banco de dados
 
 ## Autor
 
