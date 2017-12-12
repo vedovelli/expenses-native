@@ -26,8 +26,7 @@ export default class Expense extends Component {
         archived: false
       }).then(() => {
         this.reset()
-        amountField.focus()
-        // TODO: redirect to the list
+        this.props.back()
       })
     }
   }
