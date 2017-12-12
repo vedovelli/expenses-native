@@ -1,6 +1,7 @@
 
 import React, { PureComponent } from 'react'
 import { StyleSheet, TouchableOpacity, View, Text, Alert } from 'react-native'
+import Swipeout from 'react-native-swipeout'
 import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 
 export default class Expense extends PureComponent {
@@ -11,9 +12,19 @@ export default class Expense extends PureComponent {
     const currencyFormated = parseFloat(amount, 10).toFixed(2)
     return `R$${currencyFormated}`
   }
+  confirmDelete(expense) {
+    console.log(expense)
+  }
   render () {
     const { item } = this.props
     const { description, amount } = item
+    const swipeoutButtons = [
+      {
+        text: 'Delete',
+        backgroundColor: '#c00000',
+        onPress: () => this.confirmDelete(item)
+      }
+    ]
     const styles = StyleSheet.create({
       itemContainer: {
         padding: 5,
@@ -42,11 +53,14 @@ export default class Expense extends PureComponent {
         textDecorationStyle: item.archived ? 'solid' : null,
       },
     })
-    return (<TouchableOpacity onPress={() => this.onPress(item)}>
-        <View style={styles.itemContainer}>
-          <Text style={styles.itemLeft}>{description}</Text>
-          <Text style={styles.itemRight}>{this.formatCurrency(amount)}</Text>
-        </View>
-      </TouchableOpacity>)
+    return (
+        <TouchableOpacity onPress={() => this.onPress(item)}>
+          <Swipeout right={swipeoutButtons} backgroundColor="white" autoClose={true}>
+            <View style={styles.itemContainer}>
+              <Text style={styles.itemLeft}>{description}</Text>
+              <Text style={styles.itemRight}>{this.formatCurrency(amount)}</Text>
+            </View>
+          </Swipeout>
+        </TouchableOpacity>)
   }
 }

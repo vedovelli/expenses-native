@@ -25,6 +25,7 @@
     "lodash": "^4.17.4",
     "react": "16.0.0",
     "react-native": "0.50.3",
-    "react-native-dotenv": "^0.1.0"
+    "react-native-dotenv": "^0.1.0",
+    "react-native-swipeout": "^2.3.3"
   }
 }
