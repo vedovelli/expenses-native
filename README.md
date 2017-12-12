@@ -1,6 +1,6 @@
 # Vedovelli Expense Tracker
 
-[![IMG_1136.png](https://s20.postimg.org/68itzmtr1/IMG_1136.png)](https://postimg.org/image/g5tusp1cp/)
+<div style="text-align: center;">[![IMG_1137.png](https://s20.postimg.org/6la85u6vx/IMG_1137.png)](https://postimg.org/image/9fddja921/)</div>
 
 Este é o projeto base para quando quero aprender uma nova tecnologia. É o meu "TODO list" pessoal.
 
