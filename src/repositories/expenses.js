@@ -51,6 +51,10 @@ const toggleArchived = expense => {
   database.ref(`expenses/${expense.id}`).update(expense)
 }
 
+const remove = expense => {
+  database.ref(`expenses/${expense.id}`).remove()
+}
+
 const _sortDates = (a, b) => {
   a = a.split('/').reverse().join('')
   b = b.split('/').reverse().join('')
@@ -65,7 +69,8 @@ const _getItemsForDate = (expenses, date) => {
 
 export default {
   list,
-  listWithSections,
   save,
-  toggleArchived
+  remove,
+  toggleArchived,
+  listWithSections
 }

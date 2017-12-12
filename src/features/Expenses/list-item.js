@@ -13,18 +13,23 @@ export default class Expense extends PureComponent {
     return `R$${currencyFormated}`
   }
   confirmDelete(expense) {
-    console.log(expense)
+    Alert.alert(
+      'Tem certeza?',
+      `A despesa ${expense.description} será removida.`,
+      [
+        {text: 'Cancel', style: 'cancel'},
+        {text: 'Sim', onPress: () => expenseRepository.remove(expense)}
+      ]
+    )
   }
   render () {
     const { item } = this.props
     const { description, amount } = item
-    const swipeoutButtons = [
-      {
-        text: 'Delete',
-        backgroundColor: '#c00000',
-        onPress: () => this.confirmDelete(item)
-      }
-    ]
+    const swipeoutButtons = [{
+      text: 'Delete',
+      backgroundColor: '#c00000',
+      onPress: () => this.confirmDelete(item)
+    }]
     const styles = StyleSheet.create({
       itemContainer: {
         padding: 5,
