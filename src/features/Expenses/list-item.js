@@ -1,13 +1,10 @@
 import React, { PureComponent } from 'react'
-import { StyleSheet, TouchableOpacity, View, Text, Alert } from 'react-native'
+import { StyleSheet, View, Text, Alert } from 'react-native'
 import Swipeout from 'react-native-swipeout'
 import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
+import { formatCurrency } from 'util/currency'
 
 export default class Expense extends PureComponent {
-  formatCurrency (amount) {
-    const currencyFormated = parseFloat(amount, 10).toFixed(2)
-    return `R$${currencyFormated}`
-  }
   confirmDelete(expense) {
     Alert.alert(
       'Tem certeza?',
@@ -67,7 +64,7 @@ export default class Expense extends PureComponent {
       <Swipeout right={this.getSwipeButtons(item)} backgroundColor="white" autoClose={true}>
         <View style={styles.itemContainer}>
           <Text style={styles.itemLeft}>{description}</Text>
-          <Text style={styles.itemRight}>{this.formatCurrency(amount)}</Text>
+          <Text style={styles.itemRight}>{formatCurrency(amount)}</Text>
         </View>
       </Swipeout>)
   }
