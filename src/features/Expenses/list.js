@@ -13,7 +13,9 @@ export default class ExpenseList extends Component {
     }
   }
   componentDidMount () {
-    expenseRepository.listWithSections(expenses => this.setState({ expenses }))
+    expenseRepository.listWithSections(expenses => {
+      this.setState({ expenses })
+    })
   }
   render () {
     return (

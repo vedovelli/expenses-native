@@ -1,3 +1,4 @@
+
 import React, { PureComponent } from 'react'
 import { StyleSheet, View, Text, Alert } from 'react-native'
 import Swipeout from 'react-native-swipeout'

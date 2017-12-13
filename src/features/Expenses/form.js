@@ -33,17 +33,14 @@ export default class Expense extends Component {
   doSave () {
     const { amount, date, description } = this.state
     if (amount !== '' && description !== '' && date !== '') {
-      expenseRepository.save({
-        amount,
-        date,
-        description,
-        archived: false
-      }).then(() => {
-        this.reset()
-        amountField.focus()
-        this.refs.toast.show('Despesa salva com sucesso', 750)
-      })
+      const expense = { amount, date, description, archived: false }
+      expenseRepository.save(expense).then(this.saveHandler())
     }
+  }
+  saveHandler () {
+    this.reset()
+    amountField.focus()
+    this.refs.toast.show('Despesa salva com sucesso', 750)
   }
   reset () {
     this.setState({
