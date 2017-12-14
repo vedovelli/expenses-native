@@ -19,6 +19,7 @@
     "preset": "jest-expo"
   },
   "dependencies": {
+    "accounting": "^0.4.1",
     "axios": "^0.17.1",
     "expo": "^23.0.4",
     "firebase": "^4.8.0",
