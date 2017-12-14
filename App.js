@@ -17,6 +17,10 @@ export default class SectionListBasics extends Component {
     }
   }
   componentDidMount () {
+    this.getBitcoin()
+    setInterval(() => this.getBitcoin(), 300000)
+  }
+  getBitcoin () {
     cryptocoins.foxbit().then(res => {
       const { last: foxbit } = res.data.ticker_1h.exchanges.FOX
       this.setState({ bitcoin: accounting.formatMoney(foxbit, "R$", 2, ".", ",") })
