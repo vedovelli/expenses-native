@@ -63,7 +63,10 @@ const _sortDates = (a, b) => {
 
 const _getItemsForDate = (expenses, date) => {
   const data = expenses.filter(expense => expense.date === date)
-  const total = data.reduce((a, c) => a + parseFloat(c.amount, 10), 0).toFixed(2)
+  const total = data.reduce((acc, { amount }) => {
+    const sanitizedAmount = amount.replace(',', '.')
+    return acc + parseFloat(sanitizedAmount, 10)
+  }, 0).toFixed(2)
   return { title: date, data, total }
 }
 
