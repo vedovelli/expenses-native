@@ -1,27 +1,15 @@
 
 import React, { Component } from 'react'
 import { View, SectionList, StyleSheet } from 'react-native'
-import expenseRepository from 'repositories/expenses' // /src/respositories/expenses.js
 import ListItem from './list-item'
 import ListItemHeader from './list-item-header'
 
 export default class ExpenseList extends Component {
-  constructor (props) {
-    super(props)
-    this.state = {
-      expenses: []
-    }
-  }
-  componentDidMount () {
-    expenseRepository.listWithSections(expenses => {
-      this.setState({ expenses })
-    })
-  }
   render () {
     return (
       <View style={{flex: 4}}>
         <SectionList
-          sections={this.state.expenses}
+          sections={this.props.expenses}
           renderSectionHeader={({section}) => <ListItemHeader section={section} />}
           renderItem={({item}) => <ListItem item={item}/>}
           keyExtractor={(item, index) => index} />
