@@ -6,12 +6,8 @@ export default class AppNavigation extends Component {
   render () {
     return (
       <View style={styles.container}>
-        <View style={{flex: 1}}>
           <Button title="Sair" onPress={this.props.signout}/>
-        </View>
-        <View style={{flex: 4}}>
           <Button title={this.props.buttonTitle} onPress={this.props.navigate}/>
-        </View>
       </View>
     )
   }
@@ -20,7 +16,8 @@ export default class AppNavigation extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+    maxHeight: 40,
     flexDirection: 'row',
-    maxHeight: 40
+    justifyContent: 'space-between',
   }
 })
