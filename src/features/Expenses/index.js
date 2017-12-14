@@ -1,14 +1,17 @@
 
+import Firebase from 'firebase'
+import Header from 'layout/header'
 import React, { Component } from 'react'
 import { View, Text, Button } from 'react-native'
 import Form from './form'
-import Header from 'layout/header'
 import ExpenseList from './list'
+import AppNavigation from 'layout/navigation'
 
 export default class Expenses extends Component {
   constructor (props) {
     super(props)
     this.navigate = this.navigate.bind(this)
+    this.signout = this.signout.bind(this)
     this.state = {
       visibleList: false,
       buttonTitle: 'Lista de Despesas'
@@ -20,11 +23,17 @@ export default class Expenses extends Component {
       buttonTitle: this.state.visibleList ? 'Lista de Despesas' : 'Incluir Despesa'
     })
   }
-  render() {
+  signout () {
+    Firebase.auth().signOut()
+  }
+  render () {
     return (
       <View style={{flex: 1}}>
         <Header/>
-        <Button title={this.state.buttonTitle} onPress={this.navigate}/>
+        <AppNavigation
+          buttonTitle={this.state.buttonTitle}
+          navigate={this.navigate}
+          signout={this.signout}/>
         {this.state.visibleList ? <ExpenseList/> : null}
         {!this.state.visibleList ? <Form/> : null}
       </View>

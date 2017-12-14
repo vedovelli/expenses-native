@@ -22,7 +22,7 @@ export default class SectionListBasics extends Component {
   render() {
     return (
       <View style={styles.container}>
-        {this.state.currentView === 'singnin' ? <Login/> : null}
+        {this.state.currentView === 'signin' ? <Login/> : null}
         {this.state.currentView === 'expenses' ? <Expenses/> : null}
       </View>
     )
