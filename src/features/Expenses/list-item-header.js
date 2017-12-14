@@ -1,13 +1,18 @@
 
 import React, { PureComponent } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
+import { formatCurrency } from 'util/currency'
 
 export default class ListItemHeader extends PureComponent {
   render () {
     return (
       <View style={styles.sectionHeader}>
-        <Text style={styles.sectionHeaderTextLeft}>{this.props.section.title}</Text>
-        <Text style={styles.sectionHeaderTextRight}>R${this.props.section.total}</Text>
+        <Text style={styles.sectionHeaderTextLeft}>
+          {this.props.section.title}
+        </Text>
+        <Text style={styles.sectionHeaderTextRight}>
+          {formatCurrency(this.props.section.total)
+        }</Text>
       </View>
     )
   }

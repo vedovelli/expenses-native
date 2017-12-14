@@ -1,8 +1,8 @@
 
-import accounting from 'accounting'
 import cryptocoins from 'cryptocoins'
 import React, { Component } from 'react'
 import { StyleSheet, Text } from 'react-native'
+import { formatCurrency } from 'util/currency'
 
 export default class BitcoinTopBar extends Component {
   constructor () {
@@ -18,7 +18,7 @@ export default class BitcoinTopBar extends Component {
   getBitcoin () {
     cryptocoins.foxbit().then(res => {
       const { last: foxbit } = res.data.ticker_1h.exchanges.FOX
-      this.setState({ bitcoin: accounting.formatMoney(foxbit, "R$", 2, ".", ",") })
+      this.setState({ bitcoin: formatCurrency(foxbit, "R$", 2, ".", ",") })
     })
   }
   render () {
