@@ -10,7 +10,7 @@ export default class SectionListBasics extends Component {
     super()
     this.authListener()
     this.state = {
-      currentView: 'signin'
+      currentView: 'expenses'
     }
   }
   authListener () {
