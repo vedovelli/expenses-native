@@ -5,7 +5,7 @@ import { View, Image, Text, StyleSheet } from 'react-native'
 export default class Header extends Component {
   render () {
     return (
-      <View style={{flex: 1}}>
+      <View style={styles.container}>
         <View style={styles.textContainer}>
           <Text style={styles.text}>Expense Tracker</Text>
         </View>
@@ -18,6 +18,10 @@ export default class Header extends Component {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    maxHeight: 100
+  },
   textContainer: {
     position: 'absolute',
     height: '100%',
