@@ -1,6 +1,7 @@
 
-import React, { Component } from 'react'
 import Header from 'layout/header'
+import React, { Component } from 'react'
+import authRepository from 'repositories/auth'
 import { Platform,
   View,
   Text,
@@ -25,7 +26,13 @@ export default class Login extends Component {
   dismiss () {
     Keyboard.dismiss()
   }
-  doLogin () {}
+  doLogin () {
+    const { email, password } = this.state
+    if (email !== '' && password !== '') {
+      const cleanEmail = email.toLowerCase().trim()
+      authRepository.signin(cleanEmail, password)
+    }
+  }
   render () {
     return (
       <View style={{flex: 1}}>
