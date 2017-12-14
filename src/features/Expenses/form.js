@@ -81,7 +81,8 @@ export default class Expense extends Component {
 const styles = StyleSheet.create({
   formContainer: {
     flex: 4,
-    padding: 10
+    paddingLeft: 10,
+    paddingRight: 10
   },
   expenseInput: {
     height: 40,
