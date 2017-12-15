@@ -1,6 +1,6 @@
 # Vedovelli Expense Tracker
 
-[![IMG_1137.png](https://s20.postimg.org/6la85u6vx/IMG_1137.png)](https://postimg.org/image/9fddja921/)
+[![image.png](https://s20.postimg.org/xpyfbpl8d/image.png)](https://postimg.org/image/h26x97qgp/)
 
 Este é o projeto base para quando quero aprender uma nova tecnologia. É o meu "TODO list" pessoal.
 
@@ -14,11 +14,15 @@ Os dados são armazenados num *realtime database* no [Firebase](https://firebase
 
 Crie sua conta e um banco de dados. As informações de acesso devem ser adicionadas no *.env*, que ainda não existe. Basta duplicar o *.env.example*, renomeando para *.env* e adicionar os dados de acesso ao Firebase.
 
+Também é necessário habilitar lá no Firebase a **autenticação por usuário e senha** e - por fim - criar um usuário.
+
 ### Pré-requisitos
 
-Node.js, NPM ou Yarn.
+Node.js e (NPM ou Yarn).
 
 **Recomenda-se o uso do Yarn**
+
+Caso precise intala-lo, basta usar o NPM.
 
 ```
 npm i -g yarn
@@ -32,9 +36,9 @@ O projeto foi criado com **create-react-native-app** então basta clonar o proje
 
 A instalação das dependências será feita e o projeto será executado.
 
-Para visualizar basta, em seu smartphone, instalar a app Expo. Com ela basta escanear o QR Code exibido no Terminal para executar a app.
+Para visualizar basta, em seu smartphone, instalar a app [Expo](https://expo.io/). Ela lhe permitirá escanear o QR Code exibido no Terminal para executar a app.
 
-Se tudo correu bem, você verá o formulário para adicionar nova despesa.
+Se tudo correu bem, você verá o formulário para login.
 
 ## Desenvolvido com
 
