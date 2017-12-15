@@ -13,25 +13,31 @@ export default class BitcoinExchangeRate extends Component {
   }
   componentDidMount () {
     this.getBitcoin()
+
+    /**
+    * will update exchange rate every 5 minutes
+    */
     setInterval(() => this.getBitcoin(), 300000)
   }
   getBitcoin () {
     cryptocoins.foxbit().then(res => {
-      const { last: foxbit } = res.data.ticker_1h.exchanges.FOX
-      this.setState({ bitcoin: formatCurrency(foxbit, "R$", 2, ".", ",") })
+      const { last: exchangeRate } = res.data.ticker_1h.exchanges.FOX
+      this.setState({ bitcoin: formatCurrency(exchangeRate, "R$", 2, ".", ",") })
     })
   }
   render () {
-    return <Text style={styles.foxbit}>Foxbit Bitcoin: {this.state.bitcoin}</Text>
+    return (<Text style={styles.foxbit}>
+      Foxbit Bitcoin: {this.state.bitcoin}
+    </Text>)
   }
 }
 
 const styles = StyleSheet.create({
   foxbit: {
     paddingTop: 2,
+    color: 'white',
     paddingBottom: 2,
     textAlign: 'center',
-    color: 'white',
     backgroundColor: '#2a2a2a'
   }
 })

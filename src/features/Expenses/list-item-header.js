@@ -11,8 +11,8 @@ export default class ListItemHeader extends PureComponent {
           {this.props.section.title}
         </Text>
         <Text style={styles.sectionHeaderTextRight}>
-          {formatCurrency(this.props.section.total)
-        }</Text>
+          {formatCurrency(this.props.section.total)}
+        </Text>
       </View>
     )
   }
@@ -20,21 +20,21 @@ export default class ListItemHeader extends PureComponent {
 
 const styles = StyleSheet.create({
   sectionHeader: {
-    padding: 16,
-    backgroundColor: 'rgba(247,247,247,1.0)',
     flex: 1,
+    padding: 16,
+    borderColor: '#ccc',
     flexDirection: 'row',
     borderBottomWidth: 1,
-    borderColor: '#ccc',
+    backgroundColor: 'rgba(247,247,247,1.0)',
   },
   sectionHeaderTextLeft: {
-    fontSize: 16,
     flex: 1,
+    fontSize: 16,
   },
   sectionHeaderTextRight: {
+    flex: 1,
     fontSize: 16,
     fontWeight: 'bold',
-    flex: 1,
     textAlign: 'right',
   },
 })

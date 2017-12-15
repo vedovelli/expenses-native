@@ -32,7 +32,9 @@ npm i -g yarn
 
 O projeto foi criado com **create-react-native-app** então basta clonar o projeto e, com o Terminal, navegar até a pasta do projeto e executar:
 
-`yarn && yarn start`
+```
+yarn && yarn start
+```
 
 A instalação das dependências será feita e o projeto será executado.
 

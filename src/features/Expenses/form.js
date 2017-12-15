@@ -32,7 +32,7 @@ export default class Expense extends Component {
   }
   doSave () {
     const { amount, date, description } = this.state
-    if (amount !== '' && description !== '' && date !== '') {
+    if (amount && description && date) {
       const expense = { amount, date, description, archived: false }
       expenseRepository.save(expense).then(this.saveHandler())
     }
@@ -88,7 +88,11 @@ const styles = StyleSheet.create({
     height: 40,
     paddingLeft: 10,
     marginBottom: 5,
-    borderColor: Platform.OS === 'ios' ? '#ccc' : null,
-    borderWidth: Platform.OS === 'ios' ? 1 : null,
+    ...Platform.select({
+      ios: {
+        borderColor: '#ccc',
+        borderWidth: 1
+      }
+    })
   }
 })

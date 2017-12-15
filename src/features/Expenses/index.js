@@ -30,6 +30,13 @@ export default class Expenses extends Component {
       buttonTitle: this.state.visibleList ? 'Lista de Despesas' : 'Incluir Despesa'
     })
   }
+
+  /**
+  * This will trigger an auth state
+  * change on Firebase, triggering the
+  * event listener on App.js to change the
+  * state sending the user to the login screen.
+  */
   signout () {
     Firebase.auth().signOut()
   }

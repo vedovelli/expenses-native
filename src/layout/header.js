@@ -23,29 +23,29 @@ const styles = StyleSheet.create({
     maxHeight: 100
   },
   textContainer: {
-    position: 'absolute',
-    height: '100%',
-    width: '100%',
-    justifyContent: 'center',
     zIndex: 1,
+    width: '100%',
+    height: '100%',
+    position: 'absolute',
+    justifyContent: 'center',
   },
   text: {
-    width: '100%',
-    textAlign: 'center',
     fontSize: 38,
-    fontWeight: 'bold',
-    backgroundColor: 'transparent',
-    color: 'white',
+    width: '100%',
     opacity: 0.95,
+    color: 'white',
+    fontWeight: 'bold',
+    textAlign: 'center',
+    shadowOpacity: 1.0,
+    shadowColor: 'black',
+    backgroundColor: 'transparent',
     shadowOffset: {
       width: 2,
       height: 2,
     },
-    shadowColor: 'black',
-    shadowOpacity: 1.0,
   },
   image: {
-    resizeMode: 'cover',
     flex: 1
-  },
+    resizeMode: 'cover',
+  }
 })

@@ -14,10 +14,18 @@ export default class SectionListBasics extends Component {
       currentView: 'expenses'
     }
   }
+
+  /**
+  * Firebase auth is real-time.
+  * Every time remote auth state,
+  * changes this event listener gets executed.
+  */
   authListener () {
     Firebase.auth().onAuthStateChanged(user => {
       const currentView = user != null ? 'expenses' : 'signin'
-      this.setState({ currentView })
+      if (this.state.currentView !== currentView) {
+        this.setState({ currentView })
+      }
     })
   }
   render() {

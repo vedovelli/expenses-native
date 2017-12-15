@@ -22,11 +22,17 @@ export default class Expense extends PureComponent {
       backgroundColor: expense.archived ? 'green' : '#209AD1',
       onPress: () => expenseRepository.toggleArchived(expense)
     }, {
-      text: 'Delete',
+      text: 'Deletar',
       backgroundColor: '#c00000',
       onPress: () => this.confirmDelete(expense)
     }]
   }
+
+  /**
+  * Because styles need dynamic data
+  * they're declared within the class and not
+  * outside of it like on other components of this app
+  */
   getStyles ({ archived }) {
     return StyleSheet.create({
       itemContainer: {

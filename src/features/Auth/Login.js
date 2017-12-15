@@ -28,7 +28,7 @@ export default class Login extends Component {
   }
   doLogin () {
     const { email, password } = this.state
-    if (email !== '' && password !== '') {
+    if (email && password) {
       const cleanEmail = email.toLowerCase().trim()
       authRepository.signin(cleanEmail, password)
     }
@@ -70,7 +70,11 @@ const styles = StyleSheet.create({
     height: 40,
     paddingLeft: 10,
     marginBottom: 5,
-    borderColor: Platform.OS === 'ios' ? '#ccc' : null,
-    borderWidth: Platform.OS === 'ios' ? 1 : null,
+    ...Platform.select({
+      ios: {
+        borderColor: '#ccc',
+        borderWidth: 1
+      }
+    })
   }
 })

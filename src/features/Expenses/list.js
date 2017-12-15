@@ -20,23 +20,23 @@ export default class ExpenseList extends Component {
 
 const styles = StyleSheet.create({
   itemContainer: {
+    flex: 1,
     padding: 5,
     borderBottomWidth: 1,
-    borderColor: '#f4f4f4',
-    flex: 1,
     flexDirection: 'row',
+    borderColor: '#f4f4f4',
   },
   itemLeft: {
+    flex: 1,
     height: 44,
     padding: 10,
     fontSize: 16,
-    flex: 1,
   },
   itemRight: {
+    flex: 1,
     height: 44,
     padding: 10,
     fontSize: 16,
     textAlign: 'right',
-    flex: 1,
   },
 })
