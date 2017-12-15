@@ -4,7 +4,7 @@ import React, { Component } from 'react'
 import { StyleSheet, Text } from 'react-native'
 import { formatCurrency } from 'util/currency'
 
-export default class BitcoinTopBar extends Component {
+export default class BitcoinExchangeRate extends Component {
   constructor () {
     super()
     this.state = {

@@ -3,7 +3,7 @@ import Firebase from 'firebase'
 import React, { Component } from 'react'
 import { StyleSheet, View, Text } from 'react-native'
 import Login from './src/features/Auth/Login'
-import BitcoinTopBar from './src/features/Bitcoin/top-bar'
+import BitcoinExchangeRate from './src/features/Bitcoin/exchange-rate'
 import Expenses from './src/features/Expenses'
 
 export default class SectionListBasics extends Component {
@@ -23,7 +23,7 @@ export default class SectionListBasics extends Component {
   render() {
     return (
       <View style={styles.container}>
-        <BitcoinTopBar/>
+        <BitcoinExchangeRate/>
         {this.state.currentView === 'signin' ? <Login/> : null}
         {this.state.currentView === 'expenses' ? <Expenses/> : null}
       </View>
