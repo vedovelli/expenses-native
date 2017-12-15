@@ -27,7 +27,7 @@ const styles = StyleSheet.create({
     width: '100%',
     height: '100%',
     position: 'absolute',
-    justifyContent: 'center',
+    justifyContent: 'center'
   },
   text: {
     fontSize: 38,
@@ -42,10 +42,10 @@ const styles = StyleSheet.create({
     shadowOffset: {
       width: 2,
       height: 2,
-    },
+    }
   },
   image: {
-    flex: 1
-    resizeMode: 'cover',
+    flex: 1,
+    resizeMode: 'cover'
   }
 })
