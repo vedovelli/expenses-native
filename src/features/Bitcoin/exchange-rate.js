@@ -10,6 +10,7 @@ export default class BitcoinExchangeRate extends Component {
     this.state = {
       bitcoin: ''
     }
+    this.intervalId = null;
   }
   componentDidMount () {
     this.getBitcoin()
@@ -17,7 +18,13 @@ export default class BitcoinExchangeRate extends Component {
     /**
     * will update exchange rate every 5 minutes
     */
-    setInterval(() => this.getBitcoin(), 300000)
+    this.intervalId = setInterval(() => this.getBitcoin(), 300000)
+  }
+  componentWillUnmount () {
+    if (this.intervalId) {
+      clearInterval(this.intervalId);
+      this.intervalId = null;
+    }
   }
   getBitcoin () {
     cryptocoins.foxbit().then(res => {
